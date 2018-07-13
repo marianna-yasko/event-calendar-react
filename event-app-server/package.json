@@ -1,0 +1,40 @@
+{
+  "name": "event-app-server",
+  "version": "0.0.1",
+  "author": "Marianna Yasko",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch server.js",
+    "doc": "apidoc -i src/ -o doc",
+    "lint": "eslint src",
+    "ci": "npm run lint",
+    "poststop": "mongo admin --eval 'db.shutdownServer()' > /dev/null",
+    "pretest": "mongod --dbpath data --fork --logpath /dev/null"
+  },
+   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
+    "jsonwebtoken": "^8.0.0",
+    "md5": "^2.2.1",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.1",
+    "save": "^2.3.0",
+    "winston": "^2.3.1",
+	"morgan": "^1.9.0",
+	"jwt": "^0.2.0",
+    "nodemon": "^1.17.5",
+    "app-root-path": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint-config-fortech": "^1.0.0"
+  }
+}
